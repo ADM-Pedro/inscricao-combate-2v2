@@ -1,265 +1,267 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscrição para Combate 2v2</title>
-    <style>
-        /* Reset de estilo básico */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom right, #1a1a1d, #121212);
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-            text-align: center;
-            overflow: hidden;
-        }
-        .container {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
-            width: 90%;
-            max-width: 600px;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .container:hover {
-            transform: scale(1.05);
-        }
-
-        h1 {
-            font-size: 2.8rem;
-            color: #f1f1f1;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-        }
-
-        .emoji {
-            font-size: 3rem;
-            margin-right: 10px;
-        }
-
-        .info {
-            margin: 10px 0;
-            font-size: 1.2rem;
-            color: #d1d1d1;
-        }
-
-        .vaga-info {
-            background-color: #ff5722;
-            padding: 10px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            font-size: 1.2rem;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .form-section {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: #fff;
-        }
-
-        input {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #333;
-            border-radius: 5px;
-            background-color: #333;
-            color: #fff;
-            font-size: 1rem;
-            margin-bottom: 15px;
-            outline: none;
-            transition: border-color 0.3s ease-in-out;
-        }
-
-        input:focus {
-            border-color: #ff5722;
-        }
-
-        button {
-            width: 100%;
-            padding: 15px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        button:hover {
-            background-color: #218838;
-        }
-
-        .players-list {
-            background-color: #333;
-            padding: 15px;
-            border-radius: 5px;
-            margin-top: 20px;
-            overflow-y: scroll;
-            height: 150px;
-        }
-
-        .players-list ul {
-            padding: 0;
-            margin: 0;
-            list-style-type: none;
-        }
-
-        .players-list li {
-            padding: 8px;
-            border-bottom: 1px solid #555;
-        }
-
-        .pix-info {
-            background-color: #444;
-            padding: 15px;
-            border-radius: 5px;
-            margin-top: 20px;
-            font-size: 1.2rem;
-        }
-
-        .pix-info p {
-            margin: 5px 0;
-        }
-
-        .pix-info strong {
-            color: #fff;
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-                width: 100%;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscrição para Combate 2v2 - Diário do DK</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:Arial,sans-serif;
+      background:#0b1f38;
+      color:#fff;
+      padding:20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    .container{
+      max-width:600px;
+      margin:0 auto;
+    }
+    .card{
+      background:#111827;
+      border-radius:14px;
+      padding:16px;
+      margin-bottom:14px;
+    }
+    h1{
+      text-align:center;
+      margin-bottom:8px;
+    }
+    .sub{
+      text-align:center;
+      opacity:.9;
+      margin-bottom:16px;
+    }
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:8px;
+      margin-top:12px;
+    }
+    .stat{
+      background:#1f2937;
+      border-radius:10px;
+      padding:10px;
+      text-align:center;
+      font-size:14px;
+    }
+    .progress{
+      width:100%;
+      height:10px;
+      background:#1f2937;
+      border-radius:999px;
+      overflow:hidden;
+      margin-top:10px;
+    }
+    .fill{
+      height:100%;
+      width:0%;
+      background:#22c55e;
+      transition:.3s;
+    }
+    input{
+      width:100%;
+      padding:12px;
+      margin-top:10px;
+      border:none;
+      border-radius:10px;
+      background:#0f172a;
+      color:#fff;
+    }
+    button{
+      width:100%;
+      padding:13px;
+      margin-top:10px;
+      border:none;
+      border-radius:10px;
+      background:#22c55e;
+      color:#000;
+      font-weight:bold;
+      cursor:pointer;
+    }
+    .copy-btn{
+      background:#2563eb;
+      color:#fff;
+    }
+    ul{
+      list-style:none;
+      padding-left:0;
+      margin-top:10px;
+    }
+    li{
+      background:#1f2937;
+      border-radius:8px;
+      padding:10px;
+      margin-bottom:8px;
+    }
+    #msg{
+      margin-top:12px;
+      line-height:1.5;
+    }
+    .small{
+      opacity:.85;
+      font-size:14px;
+    }
+    .card img{
+      width:50px;
+      height:50px;
+    }
+    .button-cta{
+      text-align:center;
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
 
-    <div class="container">
-        <h1><span class="emoji">🏆</span> Diário do DK <span class="emoji">💰</span></h1>
+    <div class="card">
+      <h1>💰 Diário do DK</h1>
+      <div class="sub">Partidas de Brawl Stars valendo dinheiro</div>
 
-        <!-- Vagas restantes -->
-        <div class="vaga-info">
-            <p>Vagas: <span id="vagasRestantes">9</span> Restantes</p>
-        </div>
-
-        <!-- Formulário de Inscrição -->
-        <form id="inscricaoForm">
-            <div class="form-section">
-                <label for="jogador1Nome">Nome do Jogador 1:</label>
-                <input type="text" id="jogador1Nome" placeholder="Digite seu nome" required>
-
-                <label for="jogador1Nick">Nick do Brawl Stars (Jogador 1):</label>
-                <input type="text" id="jogador1Nick" placeholder="Digite seu nick" required>
-            </div>
-
-            <div class="form-section">
-                <label for="jogador2Nome">Nome do Jogador 2:</label>
-                <input type="text" id="jogador2Nome" placeholder="Digite o nome do parceiro" required>
-
-                <label for="jogador2Nick">Nick do Brawl Stars (Jogador 2):</label>
-                <input type="text" id="jogador2Nick" placeholder="Digite o nick do parceiro" required>
-            </div>
-
-            <div class="form-section">
-                <label for="whatsApp1">Número de WhatsApp do Jogador 1:</label>
-                <input type="text" id="whatsApp1" placeholder="Digite o número de WhatsApp do Jogador 1" required>
-
-                <label for="whatsApp2">Número de WhatsApp do Jogador 2:</label>
-                <input type="text" id="whatsApp2" placeholder="Digite o número de WhatsApp do Jogador 2" required>
-            </div>
-
-            <button type="submit">Garantir Vaga</button>
-        </form>
-
-        <!-- Lista de jogadores -->
-        <div class="players-list">
-            <h3>Jogadores Inscritos:</h3>
-            <ul id="playersList">
-                <!-- Lista dinâmica de duplas -->
-            </ul>
-        </div>
-
-        <!-- Pix info -->
-        <div class="pix-info">
-            <p>Para finalizar a inscrição, faça o pagamento via <strong>Pix</strong>.</p>
-            <p><strong>Chave Pix: 11998385244</strong></p>
-            <p>Envie o comprovante para confirmação da vaga!</p>
-        </div>
+      <div class="stats">
+        <div class="stat">💵 R$5<br>Entrada</div>
+        <div class="stat">⚔️ +R$3<br>Kill</div>
+        <div class="stat">🏆 +R$10<br>Vitória</div>
+      </div>
     </div>
 
-    <script>
-        let vagas = 9; // Inicialmente 9 vagas disponíveis (10 pessoas no total, considerando o organizador)
+    <div class="card">
+      <h3>🚨 Vagas</h3>
+      <p><span id="ocupadas">0</span>/5 duplas preenchidas</p>
+      <p>Restam <span id="restantes">5</span> duplas</p>
+      <div class="progress">
+        <div class="fill" id="fill"></div>
+      </div>
+      <p class="small" id="statusSala" style="margin-top:10px;">Carregando...</p>
+    </div>
 
-        // Função para atualizar as vagas
-        function atualizarVagas() {
-            document.getElementById('vagasRestantes').textContent = vagas;
-        }
+    <div class="card">
+      <h3>📝 Entrar no Combate</h3>
 
-        // Preenche a lista de jogadores inscritos
-        function adicionarJogador(jogador1Nome, jogador1Nick, jogador2Nome, jogador2Nick) {
-            const playersList = document.getElementById('playersList');
-            const li = document.createElement('li');
-            li.textContent = `${jogador1Nome} (${jogador1Nick}) + ${jogador2Nome} (${jogador2Nick})`;
-            playersList.appendChild(li);
-        }
+      <form id="cadastroForm">
+        <input id="nome" type="text" placeholder="Seu nome" required>
+        <input id="tel" type="tel" placeholder="Telefone" required>
+        <input id="nick" type="text" placeholder="Nick do Brawl Stars" required>
+        <input id="parceiro" type="text" placeholder="Nick do parceiro" required>
+        <button type="submit">Garantir vaga</button>
+      </form>
 
-        // Envio do formulário
-        document.getElementById('inscricaoForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            if (vagas <= 0) {
-                alert("Não há vagas disponíveis.");
-                return;
-            }
+      <div id="msg"></div>
+    </div>
 
-            // Pegando os dados do formulário
-            const jogador1Nome = document.getElementById('jogador1Nome').value;
-            const jogador1Nick = document.getElementById('jogador1Nick').value;
-            const jogador2Nome = document.getElementById('jogador2Nome').value;
-            const jogador2Nick = document.getElementById('jogador2Nick').value;
-            const whatsApp1 = document.getElementById('whatsApp1').value;
-            const whatsApp2 = document.getElementById('whatsApp2').value;
+    <div class="card">
+      <h3>👥 Players cadastrados</h3>
+      <ul id="lista"></ul>
+    </div>
 
-            // Validando os campos
-            if (jogador1Nome && jogador1Nick && jogador2Nome && jogador2Nick && whatsApp1 && whatsApp2) {
-                // Adiciona a dupla à lista
-                adicionarJogador(jogador1Nome, jogador1Nick, jogador2Nome, jogador2Nick);
+    <div class="card">
+      <h3>📩 Faça o pagamento</h3>
+      <div class="button-cta">
+        <p>Realize o pagamento via Pix para garantir sua vaga!</p>
+        <p><strong>Chave Pix: 11998385244</strong></p>
+        <button class="copy-btn" type="button" onclick="copiarPix()">📋 Copiar Pix</button>
+      </div>
+    </div>
 
-                // Atualiza o número de vagas restantes
-                vagas--;
-                atualizarVagas();
+  </div>
 
-                // Limpa o formulário após a inscrição
-                document.getElementById('inscricaoForm').reset();
-                
-                alert(`Inscrição Confirmada!`);
-            } else {
-                alert('Por favor, preencha todos os campos.');
-            }
+  <script>
+    const URL = "https://script.google.com/macros/s/AKfycbwsBIpdwuovHQakSSfsz5sOFvufFNK3-tHKeWYZ2c2_4bgGZPARAgkW-y3ElwrxzicU/exec";
+    const PIX = "11998385244";
+    const TOTAL = 10; // 5 duplas (10 pessoas no total)
+
+    const form = document.getElementById("cadastroForm");
+    const msg = document.getElementById("msg");
+    const lista = document.getElementById("lista");
+    const ocupadasEl = document.getElementById("ocupadas");
+    const restantesEl = document.getElementById("restantes");
+    const fillEl = document.getElementById("fill");
+    const statusSala = document.getElementById("statusSala");
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const nome = document.getElementById("nome").value.trim();
+      const telefone = document.getElementById("tel").value.trim();
+      const nick = document.getElementById("nick").value.trim();
+      const parceiro = document.getElementById("parceiro").value.trim();
+
+      try {
+        const res = await fetch(URL, {
+          method: "POST",
+          body: JSON.stringify({ nome, telefone, nick, parceiro })
         });
-    </script>
 
+        const texto = await res.text();
+
+        if (texto === "LOTADO") {
+          msg.innerHTML = "❌ A sala já está lotada.";
+          return;
+        }
+
+        if (texto === "JA_ENTROU") {
+          msg.innerHTML = "⚠️ Esse nick já foi cadastrado.";
+          return;
+        }
+
+        msg.innerHTML = `
+          ✅ Cadastro enviado!<br><br>
+          Faça o Pix de <b>R$5,00</b><br><br>
+          <b id="pixKey">${PIX}</b><br>
+          <button class="copy-btn" type="button" onclick="copiarPix()">📋 Copiar Pix</button>
+          <br><br>
+          Envie o comprovante com nome + nick
+        `;
+
+        form.reset();
+        carregar();
+      } catch (err) {
+        msg.innerHTML = "❌ Erro ao enviar cadastro.";
+      }
+    });
+
+    function copiarPix() {
+      navigator.clipboard.writeText(PIX);
+      alert("Pix copiado!");
+    }
+
+    async function carregar() {
+      try {
+        const res = await fetch(URL);
+        const data = await res.json();
+
+        lista.innerHTML = "";
+
+        data.forEach(function(nick) {
+          const li = document.createElement("li");
+          li.textContent = nick;
+          lista.appendChild(li);
+        });
+
+        const ocupadas = data.length;
+        const restantes = TOTAL - ocupadas;
+
+        ocupadasEl.textContent = ocupadas;
+        restantesEl.textContent = restantes;
+        fillEl.style.width = (ocupadas / TOTAL * 100) + "%";
+
+        if (ocupadas >= TOTAL) {
+          statusSala.textContent = "🔥 Sala lotada";
+        } else if (restantes <= 2) {
+          statusSala.textContent = "⚠️ Últimas vagas";
+        } else {
+          statusSala.textContent = "✅ Vagas abertas";
+        }
+      } catch (err) {
+        statusSala.textContent = "❌ Erro ao carregar jogadores";
+      }
+    }
+
+    carregar();
+  </script>
 </body>
 </html>
