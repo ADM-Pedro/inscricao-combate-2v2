@@ -130,8 +130,10 @@
 
     <div class="card">
       <h3>🚨 Vagas</h3>
-      <p><span id="ocupadas">0</span>/5 duplas preenchidas</p>
-      <p>Restam <span id="restantes">5</span> duplas</p>
+      <p><span id="duplasOcupadas">0</span>/5 duplas preenchidas</p>
+      <p>Restam <span id="duplasRestantes">5</span> duplas</p>
+      <p><span id="jogadoresOcupados">0</span>/10 jogadores</p>
+      <p>Restam <span id="jogadoresRestantes">10</span> jogadores</p>
       <div class="progress">
         <div class="fill" id="fill"></div>
       </div>
@@ -176,8 +178,10 @@
     const form = document.getElementById("cadastroForm");
     const msg = document.getElementById("msg");
     const lista = document.getElementById("lista");
-    const ocupadasEl = document.getElementById("ocupadas");
-    const restantesEl = document.getElementById("restantes");
+    const duplasOcupadasEl = document.getElementById("duplasOcupadas");
+    const duplasRestantesEl = document.getElementById("duplasRestantes");
+    const jogadoresOcupadosEl = document.getElementById("jogadoresOcupados");
+    const jogadoresRestantesEl = document.getElementById("jogadoresRestantes");
     const fillEl = document.getElementById("fill");
     const statusSala = document.getElementById("statusSala");
 
@@ -235,23 +239,32 @@
 
         lista.innerHTML = "";
 
-        data.forEach(function(nick) {
+        let duplas = 0;
+        let jogadores = 0;
+
+        data.forEach(function({ nick1, nick2 }) {
           const li = document.createElement("li");
-          li.textContent = nick;
+          li.textContent = `Dupla: ${nick1} + ${nick2}`;
           lista.appendChild(li);
+
+          duplas++;
+          jogadores += 2;
         });
 
-        const ocupadas = data.length;
-        const restantes = TOTAL - ocupadas;
+        const duplasRestantes = 5 - duplas;
+        const jogadoresRestantes = TOTAL - jogadores;
 
-        ocupadasEl.textContent = ocupadas;
-        restantesEl.textContent = restantes;
-        fillEl.style.width = (ocupadas / TOTAL * 100) + "%";
+        duplasOcupadasEl.textContent = duplas;
+        duplasRestantesEl.textContent = duplasRestantes;
+        jogadoresOcupadosEl.textContent = jogadores;
+        jogadoresRestantesEl.textContent = jogadoresRestantes;
 
-        if (ocupadas >= TOTAL) {
+        fillEl.style.width = (duplas / 5 * 100) + "%";
+
+        if (duplas >= 5) {
           statusSala.textContent = "🔥 Sala lotada";
-        } else if (restantes <= 2) {
-          statusSala.textContent = "⚠️ Últimas vagas";
+        } else if (duplasRestantes <= 1) {
+          statusSala.textContent = "⚠️ Últimas vagas!";
         } else {
           statusSala.textContent = "✅ Vagas abertas";
         }
